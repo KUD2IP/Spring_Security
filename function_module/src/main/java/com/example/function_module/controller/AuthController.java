@@ -14,7 +14,8 @@ public class AuthController {
 
     @Autowired
     private UserServiceImpl userService;
-    @GetMapping("/api/all")
+    @GetMapping("/all")
+    @PreAuthorize(value = "hasAnyAuthority('ROLE_ADMIN')")
     public @ResponseBody Iterable<User> getAllUser() {
         // This returns a JSON or XML with the users
         return userService.allUsers();

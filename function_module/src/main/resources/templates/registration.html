@@ -11,38 +11,45 @@
 </style>
 <body>
 <form th:action="@{/registration}" method="post" th:object="${user}">
-    <div class="container">
-        <h1>Registration</h1>
-        <label for="nickname"><b>Nickname</b></label>
-        <input
-                type="text"
-                placeholder="Enter nickname"
-                name="nickname"
-                id="nickname"
-        />
 
-        <label for="login"><b>Login</b></label>
-        <input
-                type="text"
-                placeholder="Enter login"
-                name="login"
-                id="login"
-        />
+    <div class="wrapper fadeUpDown">
+        <div id="formContent">
+            <!-- Tabs Titles -->
 
-        <label for="password"><b>Password</b></label>
-        <input
-                type="password"
-                placeholder="Enter Password"
-                name="password"
-                id="password"
-        />
+            <a class="inactive underlineHover" th:href="@{/login}">Sign In </a>
+            <h2 class="active"> Sign Up </h2>
 
-        <!-- submit button -->
-        <button type="submit">Sign up</button>
-        <div class="form-group">
-        <span>Already registered? <a href="/"
-                             th:href="@{/login}">Login
-                                here</a></span>
+            <!-- Registration Form -->
+            <form>
+                <input class="fadeUp first"
+                       type="text"
+                       id="nickname"
+                       name="nickname"
+                       placeholder="Enter nickname"
+                >
+
+
+                <input class="fadeUp second"
+                       type="text"
+                       id="login"
+                       name="login"
+                       placeholder="Enter login"
+                >
+
+                <input class="fadeUp third"
+                       type="password"
+                       id="password"
+                       name="password"
+                       placeholder="Enter password"
+                >
+
+                <input class="fadeUp fourth"
+                       type="submit"
+                       value="Log Up"
+                >
+            </form>
+
+
         </div>
     </div>
 </form>

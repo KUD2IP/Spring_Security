@@ -156,16 +156,16 @@ input[type=password]::placeholder {
 /* ANIMATIONS */
 
 /* Simple CSS3 Fade-in-down Animation */
-.fadeUpDown {
-    -webkit-animation-name: fadeUpDown;
-    animation-name: fadeUpDown;
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
     animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
 }
 
-@-webkit-keyframes fadeUpDown {
+@-webkit-keyframes fadeInDown {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
@@ -178,7 +178,7 @@ input[type=password]::placeholder {
     }
 }
 
-@keyframes fadeUpDown {
+@keyframes fadeInDown {
     0% {
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
@@ -192,15 +192,15 @@ input[type=password]::placeholder {
 }
 
 /* Simple CSS3 Fade-in Animation */
-@-webkit-keyframes fadeUp { from { opacity:0; } to { opacity:1; } }
-@-moz-keyframes fadeUp { from { opacity:0; } to { opacity:1; } }
-@keyframes fadeUp { from { opacity:0; } to { opacity:1; } }
+@-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@-moz-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
 
-.fadeUp {
+.fadeIn {
     opacity:0;
-    -webkit-animation:fadeUp ease-in 1;
-    -moz-animation:fadeUp ease-in 1;
-    animation:fadeUp ease-in 1;
+    -webkit-animation:fadeIn ease-in 1;
+    -moz-animation:fadeIn ease-in 1;
+    animation:fadeIn ease-in 1;
 
     -webkit-animation-fill-mode:forwards;
     -moz-animation-fill-mode:forwards;
@@ -213,25 +213,19 @@ input[type=password]::placeholder {
 
 
 
-.fadeUp.first {
-    -webkit-animation-delay: 0.4s;
-    -moz-animation-delay: 0.4s;
-    animation-delay: 0.4s;
-}
-
-.fadeUp.second {
+.fadeIn.first {
     -webkit-animation-delay: 0.6s;
     -moz-animation-delay: 0.6s;
     animation-delay: 0.6s;
 }
 
-.fadeUp.third {
+.fadeIn.second {
     -webkit-animation-delay: 0.8s;
     -moz-animation-delay: 0.8s;
     animation-delay: 0.8s;
 }
 
-.fadeUp.fourth {
+.fadeIn.third {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
@@ -271,25 +265,4 @@ input[type=password]::placeholder {
 
 * {
     box-sizing: border-box;
-}
-/* desired spacing for input fields */
-input {
-    margin: 0.25em 0em 1em 0em;
-}
-input {
-    margin: 0.25em 0em 1em 0em;
-    outline: none;
-    padding: 0.5em;
-    border: none;
-    background-color: rgb(225, 225, 225);
-    border-radius: 0.25em;
-    color: black;
-}
-button {
-    padding: 0.75em;
-    border: none;
-    outline: none;
-    background-color: rgb(68, 18, 232);
-    color: white;
-    border-radius: 0.25em;
 }

@@ -56,11 +56,11 @@ public class WebSecurityConfig {
                 .authorizeHttpRequests(auth ->
                         auth.requestMatchers("/registration", "/css/**")
                                 .permitAll()
-                        .requestMatchers("/api/all").authenticated())
+                        .requestMatchers("/all").authenticated())
                 .formLogin((form) -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")
-                        .defaultSuccessUrl("/api/all")
+                        .defaultSuccessUrl("/")
                         .usernameParameter("login")
                         .permitAll())
                 .build();
