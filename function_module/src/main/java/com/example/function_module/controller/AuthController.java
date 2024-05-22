@@ -15,10 +15,14 @@ public class AuthController {
     @Autowired
     private UserServiceImpl userService;
     @GetMapping("/all")
-    @PreAuthorize(value = "hasAnyAuthority('ROLE_ADMIN')")
+    @PreAuthorize(value = "hasAuthority('ROLE_ADMIN')")
     public @ResponseBody Iterable<User> getAllUser() {
-        // This returns a JSON or XML with the users
         return userService.allUsers();
+    }
+
+    @GetMapping("/")
+    public String home(){
+        return "index";
     }
 
     @GetMapping("/login")
@@ -26,8 +30,7 @@ public class AuthController {
         return "login";
     }
 
-    @GetMapping("/User")
-    @PreAuthorize(value = "hasAuthority('ROLE_USER')")
+    @GetMapping("/account")
     public String forUser(){
         return "account";
     }
