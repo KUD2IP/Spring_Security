@@ -41,12 +41,16 @@ public class RegistrationController {
                     "the login password and nickname must be longer than 5 characters");
             return "registration";
         }
+
         userService.save(registrationDto);
         return "redirect:/login";
     }
 
     @GetMapping
     public String registrationGET() {
+        if(userService.isUserLoggedIn()){
+            return "redirect:/";
+        }
         return "registration";
     }
 

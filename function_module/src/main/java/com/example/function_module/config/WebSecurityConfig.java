@@ -1,5 +1,6 @@
 package com.example.function_module.config;
 
+import com.example.function_module.component.CustomAuthenticationProvider;
 import com.example.function_module.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -75,4 +76,6 @@ public class WebSecurityConfig {
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
+
+
 }

@@ -1,8 +1,7 @@
-package com.example.function_module.config;
+package com.example.function_module.component;
 
 
 import com.example.function_module.entity.User;
-import com.example.function_module.service.UserService;
 import com.example.function_module.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -13,7 +12,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
-import javax.naming.AuthenticationException;
 import java.util.ArrayList;
 import java.util.List;
 

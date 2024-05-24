@@ -13,6 +13,7 @@ import com.example.function_module.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -22,7 +23,6 @@ import org.springframework.stereotype.Service;
 public class UserServiceImpl implements UserService {
     private final UserRepository userRepo;
     private final RoleRepository roleRepo;
-
     private final PasswordEncoder passwordEncoder;
     @Autowired
     public UserServiceImpl(UserRepository userRepo,
@@ -32,6 +32,7 @@ public class UserServiceImpl implements UserService {
         this.roleRepo = roleRepo;
         this.passwordEncoder = passwordEncoder;
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
@@ -47,14 +48,15 @@ public class UserServiceImpl implements UserService {
         );
     }
 
+
     public List<User> allUsers() {
         return userRepo.findAll();
     }
 
+
     public User findByLogin(String login){
         return userRepo.findByLogin(login);
     }
-
 
 
     @Override
@@ -69,6 +71,13 @@ public class UserServiceImpl implements UserService {
     }
     private Collection < ? extends GrantedAuthority > mapRolesToAuthorities(Collection < Role > roles) {
         return roles.stream().map(role-> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList());
+    }
+
+
+    public boolean isUserLoggedIn(){
+        return SecurityContextHolder.getContext()
+                .getAuthentication().getPrincipal()
+                instanceof UserDetails;
     }
 
 
