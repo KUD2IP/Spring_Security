@@ -17,6 +17,7 @@
                 <ul class="nav me-auto">
                     <li class="nav-item"><a th:href="@{/}" class="nav-link link-body-emphasis px-2 active" aria-current="page">Главная</a></li>
                     <li class="nav-item"><a th:href="@{/account}" class="nav-link link-body-emphasis px-2">Профиль</a></li>
+                    <li class="nav-item"><a th:href="@{/api/v1/registration_apart}" class="nav-link link-body-emphasis px-2">Квартиры</a></li>
                 </ul>
                 <ul class="nav">
                     <li class="nav-item"><a th:href="@{/login}" class="nav-link link-body-emphasis px-2">Вход</a></li>
@@ -59,9 +60,9 @@
 
                     <input class="fadeUp second"
                            type="text"
-                           id="login"
-                           name="login"
-                           placeholder="Enter login"
+                           id="username"
+                           name="username"
+                           placeholder="Enter username"
                     >
 
                     <input class="fadeUp third"

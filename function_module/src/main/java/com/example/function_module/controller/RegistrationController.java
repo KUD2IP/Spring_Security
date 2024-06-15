@@ -2,18 +2,21 @@ package com.example.function_module.controller;
 
 import com.example.function_module.dto.UserRegisterDto;
 import com.example.function_module.entity.User;
-import com.example.function_module.service.UserServiceImpl;
+import com.example.function_module.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import static com.example.function_module.controller.ControllerConst.USER_REGISTRATION;
+
 
 @Controller
-@RequestMapping("/registration")
+@RequestMapping(USER_REGISTRATION)
 public class RegistrationController {
     @Autowired
-    private UserServiceImpl userService;
+    private UserService userService;
+
     @ModelAttribute("user")
     public UserRegisterDto userRegistrationDto(){
         return new UserRegisterDto();
@@ -23,17 +26,17 @@ public class RegistrationController {
     public String registrationPOST(
             @ModelAttribute("user") UserRegisterDto registrationDto,
                                     Model model) {
-        User user = userService.findByLogin(registrationDto.getLogin());
+        User user = userService.findByUsername(registrationDto.getUsername());
 
         if (!(user == null) &&
-                registrationDto.getLogin()
-                .equals(user.getLogin())
+                registrationDto.getUsername()
+                .equals(user.getUsername())
         ){
             model.addAttribute("replay",
                     "There is already a user with this login");
             return "registration";
         }
-        if(registrationDto.getLogin().length() < 5 ||
+        if(registrationDto.getUsername().length() < 5 ||
                 registrationDto.getNickname().length() < 5 ||
                 registrationDto.getPassword().length() < 5
         ) {
@@ -45,6 +48,8 @@ public class RegistrationController {
         userService.save(registrationDto);
         return "redirect:/login";
     }
+
+
 
     @GetMapping
     public String registrationGET() {

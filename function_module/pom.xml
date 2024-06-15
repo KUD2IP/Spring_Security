@@ -82,6 +82,7 @@
         </dependency>
 
 
+
         <!-- https://mvnrepository.com/artifact/org.hibernate.orm/hibernate-core -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
@@ -93,6 +94,14 @@
             <artifactId>spring-security-config</artifactId>
             <version>6.2.0</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-oauth2-client -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-oauth2-client</artifactId>
+            <version>6.3.0</version>
+        </dependency>
+
 
 
 

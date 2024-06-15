@@ -26,7 +26,7 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         String username = authentication.getName();
         String password = authentication.getCredentials().toString();
 
-        User user = userService.findByLogin(username);
+        User user = userService.findByUsername(username);
 
         if (user == null || !password.equals(user.getPassword())) {
             throw new BadCredentialsException("Invalid username or password");
@@ -43,3 +43,4 @@ public class CustomAuthenticationProvider implements AuthenticationProvider {
         return authentication.equals(UsernamePasswordAuthenticationToken.class);
     }
 }
+
