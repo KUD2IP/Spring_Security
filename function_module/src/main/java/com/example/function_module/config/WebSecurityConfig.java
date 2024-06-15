@@ -87,7 +87,7 @@ public class WebSecurityConfig {
                         .permitAll() // Allow all requests to these URLs
                         .anyRequest()
                         .authenticated()// Require authentication for all other requests
-        ).sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        );
 
         // Configure form login
         http.formLogin((form) -> form

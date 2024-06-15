@@ -28,7 +28,6 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepo;
     private final RoleRepository roleRepo;
     private final PasswordEncoder passwordEncoder;
-    private final AuthenticationManager authenticationManager;
 
 
     /**
@@ -117,16 +116,6 @@ public class UserServiceImpl implements UserService {
         return SecurityContextHolder.getContext()
                 .getAuthentication().getPrincipal()
                 instanceof UserDetails;
-    }
-
-    public User authenticate(LoginDto input) {
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        input.getUsername(),
-                        input.getPassword()
-                )
-        );
-        return findByUsername(input.getUsername());
     }
 
 
